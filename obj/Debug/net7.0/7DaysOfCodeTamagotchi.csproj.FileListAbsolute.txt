@@ -16,3 +16,7 @@ C:\Users\User\Documents\7DaysOfCodeTamagotchi\Tamagotchi\obj\Debug\net7.0\7DaysO
 C:\Users\User\Documents\7DaysOfCodeTamagotchi\Tamagotchi\obj\Debug\net7.0\7DaysOfCodeTamagotchi.genruntimeconfig.cache
 C:\Users\User\Documents\7DaysOfCodeTamagotchi\Tamagotchi\obj\Debug\net7.0\ref\7DaysOfCodeTamagotchi.dll
 C:\Users\User\Documents\7DaysOfCodeTamagotchi\Tamagotchi\bin\Debug\net7.0\RestSharp.dll
+C:\Users\User\Documents\7DaysOfCodeTamagotchi\Tamagotchi\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\User\Documents\7DaysOfCodeTamagotchi\Tamagotchi\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\User\Documents\7DaysOfCodeTamagotchi\Tamagotchi\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+C:\Users\User\Documents\7DaysOfCodeTamagotchi\Tamagotchi\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll

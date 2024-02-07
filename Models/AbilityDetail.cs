@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace _7DaysOfCodeTamagotchi.Models
+namespace Tamagotchi.Models
 {
     public class AbilityDetail
     {

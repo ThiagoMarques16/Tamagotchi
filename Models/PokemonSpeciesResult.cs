@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace Tamagotchi.Models
 {
-    public class PokemonResult
+    public class PokemonSpeciesResult
     {
         [JsonProperty("name")]
         public string Name { get; set; }

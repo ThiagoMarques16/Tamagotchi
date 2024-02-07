@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace Tamagotchi.Models
 {
-    public class Pokemon
+    public class PokemonSpeciesResponse
     {
         [JsonProperty("count")]
         public long Count { get; set; }
@@ -18,6 +18,6 @@ namespace Tamagotchi.Models
         public object Previous { get; set; }
 
         [JsonProperty("results")]
-        public PokemonResult[] Results { get; set; }
+        public List<PokemonSpeciesResult> Results { get; set; }
     }
 }

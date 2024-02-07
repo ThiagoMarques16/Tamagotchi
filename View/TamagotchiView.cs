@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Tamagotchi.Models;
 
 namespace Tamagotchi.View
 {
@@ -31,6 +32,18 @@ namespace Tamagotchi.View
             Console.Write("Opcao desejada: ");
         }
 
+        public void ListarPokemonsDisponiveis(List<PokemonSpeciesResult> listaPokemons){
+
+            var i = 1;
+            foreach(var pokemon in listaPokemons){
+                
+                System.Console.WriteLine($"{i ++} - {pokemon.Name.ToUpper()}");
+            }
+
+            Console.Write("Opcao desejada: ");
+        }
+
+        
         public int ObterOpcao(int MaxOption){
             int option;
             while(!int.TryParse(Console.ReadLine(), out option) || option < 1 || option > MaxOption){

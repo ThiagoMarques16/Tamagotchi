@@ -1,24 +1,48 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using RestSharp;
 using Tamagotchi.Models;
+using Tamagotchi.Services;
+using Tamagotchi.View;
 
-namespace _7DaysOfCodeTamagotchi.Controller
+namespace Tamagotchi.Controller
 {
     public class TamagotchiController
     {
-        public void BuscarPokemons(){
-            var client = new RestClient("https://pokeapi.co/api/v2/pokemon");
-            var request = new RestRequest("", Method.Get);
-            var response = client.Execute(request);
-            var pokemonResult = JsonConvert.DeserializeObject<Pokemon>(response.Content);
+        private TamagotchiServices tamagotchiServices {get ; set ;}
+        private TamagotchiView tamagotchiView {get ; set ;}
+        private List<PokemonSpeciesResult> especiesDisponiveis {get ; set ;}
 
-            for(int i = 0; i < pokemonResult.Results.Length; i++){
-                System.Console.WriteLine($"{i + 1} - {pokemonResult.Results[i].Name.ToUpper()}");
+        public TamagotchiController(){
+            tamagotchiView = new TamagotchiView();
+            tamagotchiServices = new TamagotchiServices();
+            especiesDisponiveis = tamagotchiServices.ObterEspeciesDisponiveis();
+        }
+        public void Jogar(){
+            tamagotchiView.ApresentarBoasVindas();
+
+            while(true){
+                tamagotchiView.ApresentarMenu();
+                int escolha = tamagotchiView.ObterOpcao(3);
+
+                switch(escolha){
+                    case 1:
+                        while(true){
+                            tamagotchiView.ListarPokemonsDisponiveis(especiesDisponiveis);
+                            int escolhaMascote = tamagotchiView.ObterOpcao(especiesDisponiveis.Count);
+                            tamagotchiView.ApresentarMenuMascote();
+                            int escolhaMenuMascote = tamagotchiView.ObterOpcao(especiesDisponiveis.Count);
+
+                            switch(escolhaMenuMascote){
+                                case 1:
+                                System.Console.WriteLine("Habilidades");
+                                break;
+                            }
+                        }   
+
+                    case 2:
+                        System.Console.WriteLine("Opção dois");
+                    break;    
+                }
             }
+            
         }
     }
 }
