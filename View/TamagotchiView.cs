@@ -41,21 +41,22 @@ namespace Tamagotchi.View
             Console.WriteLine($"Menu principal: ");
             Console.WriteLine("1- Adotar um mascote virtual");
             Console.WriteLine("2- Ver seus mascotes virtuais");
-            Console.WriteLine("3- Sair do jogo");
+            Console.WriteLine("3- Interagir com mascote");
+            Console.WriteLine("4- Sair do jogo");
             Console.Write("Opcao desejada: ");
         }
 
         public void ApresentarMenuMascote(){
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("1- Saber mais sobre o Tamagotchi");
-            Console.WriteLine("2- Adotar Tamagotchi escolhido");
+            Console.WriteLine("-------------OPÇÕES DO MASCOTE-------------");
+            Console.WriteLine("1- Saber mais sobre o mascote");
+            Console.WriteLine("2- Adotar mascote escolhido");
             Console.WriteLine("3- Ir para o menu principal");
             Console.WriteLine("4- Voltar");
             Console.Write("Opcao desejada: ");
         }
 
         public void ListarPokemonsDisponiveis(List<PokemonSpeciesResult> listaPokemons){
-
+            Console.WriteLine("-------------ESPECIES DISPONIVEIS-------------");
             var i = 1;
             foreach(var pokemon in listaPokemons){
                 
@@ -66,6 +67,7 @@ namespace Tamagotchi.View
         }
 
         public void ListarDescricaoDoPokemon(PokemonDetails pokemonDetails){
+            System.Console.WriteLine("-------------INFORMAÇÕES DO MASCOTE-------------");
             Console.WriteLine($"Nome - {pokemonDetails.Name.ToUpper()}");
             Console.WriteLine($"Peso - {pokemonDetails.Weight}");
             Console.WriteLine($"Altura - {pokemonDetails.Height}");
@@ -80,7 +82,9 @@ namespace Tamagotchi.View
             Console.WriteLine("1- Saber como Mascote está");
             Console.WriteLine("2- Brincar com o mascote");
             Console.WriteLine("3- Alimentar o Mascote");
-            Console.WriteLine("4- Voltar");
+            Console.WriteLine("4- Botar mascote para dormir");
+            Console.WriteLine("5- Levar mascote ao veterinario");
+            Console.WriteLine("6- Voltar");
         }
 
         public void MostrarNascimento(){

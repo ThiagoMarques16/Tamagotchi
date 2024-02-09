@@ -510,31 +510,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\thiia\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\thiia\\OneDrive\\Documentos\\7DaysOfCodeTamagotchi\\Tamagotchi\\Tamagotchi\\7DaysOfCodeTamagotchi.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Documents\\7DaysOfCodeTamagotchi\\Tamagotchi\\7DaysOfCodeTamagotchi.csproj",
       "projectName": "7DaysOfCodeTamagotchi",
-      "projectPath": "C:\\Users\\thiia\\OneDrive\\Documentos\\7DaysOfCodeTamagotchi\\Tamagotchi\\Tamagotchi\\7DaysOfCodeTamagotchi.csproj",
-      "packagesPath": "C:\\Users\\thiia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\thiia\\OneDrive\\Documentos\\7DaysOfCodeTamagotchi\\Tamagotchi\\Tamagotchi\\obj\\",
+      "projectPath": "C:\\Users\\User\\Documents\\7DaysOfCodeTamagotchi\\Tamagotchi\\7DaysOfCodeTamagotchi.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Documents\\7DaysOfCodeTamagotchi\\Tamagotchi\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\thiia\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -582,7 +575,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
