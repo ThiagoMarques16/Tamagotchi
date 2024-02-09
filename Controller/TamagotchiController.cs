@@ -1,6 +1,7 @@
 using Tamagotchi.Models;
 using Tamagotchi.Services;
 using Tamagotchi.View;
+using AutoMapper;
 
 namespace Tamagotchi.Controller
 {
@@ -9,8 +10,16 @@ namespace Tamagotchi.Controller
         private TamagotchiServices tamagotchiServices {get ; set ;}
         private TamagotchiView tamagotchiView {get ; set ;}
         private List<PokemonSpeciesResult> especiesDisponiveis {get ; set ;}
+        private List<TamagotchiDto> mascotesAdotados {get ; set ; }
+
+        IMapper mapper { get; set; }
 
         public TamagotchiController(){
+            var config = new MapperConfiguration(cfg => {
+                cfg.AddProfile<AutoMapperProfile>();
+            });
+
+            mapper = config.CreateMapper();
             tamagotchiView = new TamagotchiView();
             tamagotchiServices = new TamagotchiServices();
             especiesDisponiveis = tamagotchiServices.ObterEspeciesDisponiveis();
@@ -40,8 +49,15 @@ namespace Tamagotchi.Controller
                                 tamagotchiView.ListarDescricaoDoPokemon(pokemonDatelhe);
                                 break;
                                 case 2:
+                                if(tamagotchiView.ConfirmarAdocao()){
+                                    tamagotchiView.MostrarNascimento();
+                                    pokemonDatelhe = tamagotchiServices.ObterDatalhesDaEspecies(escolhaMascote);
+                                    TamagotchiDto tamagotchi = mapper.Map<TamagotchiDto>(pokemonDatelhe);
+                                    mascotesAdotados.Add(tamagotchi);
+
+                                    
+                                }
                                 
-                                tamagotchiView.MostrarNascimento();
                                 break;
                                 case 3:
                                 MenuMascote = false;
@@ -52,7 +68,9 @@ namespace Tamagotchi.Controller
                         }   
                     break;
                     case 2:
-                        System.Console.WriteLine("Opção dois");
+                        foreach(var mascotes in mascotesAdotados){
+                            System.Console.WriteLine(mascotes.Nome);
+                        }
                     break;
                     case 3:
                     System.Console.WriteLine("Obrigado por jogar, até a proxima!!");

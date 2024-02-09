@@ -9,6 +9,26 @@ namespace Tamagotchi.View
     public class TamagotchiView
     {
         public void ApresentarBoasVindas(){
+            string caminhoDoArquivo = "C:\\Users\\thiia\\OneDrive\\Documentos\\7DaysOfCodeTamagotchi\\Tamagotchi\\Tamagotchi\\Src\\tamagotchi.txt";
+
+            // Verifica se o arquivo existe para evitar erros
+            if (File.Exists(caminhoDoArquivo))
+            {
+                // Ler todas as linhas do arquivo
+                string[] linhas = File.ReadAllLines(caminhoDoArquivo);
+
+                // Iterar sobre cada linha e imprimir no console
+                System.Console.WriteLine("MASCOTE ADOTADO COM SUCESSO!! SEU OVO ESTÁ CHOCANDO");
+                foreach (string linha in linhas)
+                {
+                    Console.WriteLine($"{linha.Replace("\"", "\\\"")}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Arquivo não encontrado.");
+            }
+
             Console.WriteLine("---------------BEM VINDO-----------");
             Console.WriteLine("BEM VINDO ao Tamagotchi, qual é o seu nome?");
             string nome = Console.ReadLine();
@@ -16,6 +36,7 @@ namespace Tamagotchi.View
         }
 
         public void ApresentarMenu(){
+
             Console.WriteLine("-----------------MENU PRINCIPAL--------------");
             Console.WriteLine($"Menu principal: ");
             Console.WriteLine("1- Adotar um mascote virtual");
@@ -63,7 +84,7 @@ namespace Tamagotchi.View
         }
 
         public void MostrarNascimento(){
-            string caminhoDoArquivo = "C:\\Users\\User\\Documents\\7DaysOfCodeTamagotchi\\Tamagotchi\\Src\\egg.txt";
+            string caminhoDoArquivo = "C:\\Users\\thiia\\OneDrive\\Documentos\\7DaysOfCodeTamagotchi\\Tamagotchi\\Tamagotchi\\Src\\egg.txt";
 
             // Verifica se o arquivo existe para evitar erros
             if (File.Exists(caminhoDoArquivo))
@@ -82,7 +103,13 @@ namespace Tamagotchi.View
             {
                 Console.WriteLine("Arquivo não encontrado.");
             }
-                System.Console.WriteLine("");
+            System.Console.WriteLine("");
+        }
+
+        public bool ConfirmarAdocao(){
+            System.Console.WriteLine("Deseja confirmar adoção (s/n)?");
+            string resposta = Console.ReadLine();
+            return resposta.ToLower() == "s";
         }
         public int ObterOpcao(int MaxOption){
             int option;
