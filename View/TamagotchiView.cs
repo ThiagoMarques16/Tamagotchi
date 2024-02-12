@@ -9,24 +9,21 @@ namespace Tamagotchi.View
     public class TamagotchiView
     {
         public void ApresentarBoasVindas(){
-            string caminhoDoArquivo = "C:\\Users\\thiia\\OneDrive\\Documentos\\7DaysOfCodeTamagotchi\\Tamagotchi\\Tamagotchi\\Src\\tamagotchi.txt";
 
-            // Verifica se o arquivo existe para evitar erros
-            if (File.Exists(caminhoDoArquivo))
+            string basePath = AppDomain.CurrentDomain.BaseDirectory;
+            string relativePath = @"..\..\..\Src\tamagotchi.txt";
+            string filePath = Path.GetFullPath(Path.Combine(basePath, relativePath));
+
+            try
             {
-                // Ler todas as linhas do arquivo
-                string[] linhas = File.ReadAllLines(caminhoDoArquivo);
-
-                // Iterar sobre cada linha e imprimir no console
-                System.Console.WriteLine("MASCOTE ADOTADO COM SUCESSO!! SEU OVO ESTÁ CHOCANDO");
-                foreach (string linha in linhas)
+                foreach (string line in File.ReadLines(filePath))
                 {
-                    Console.WriteLine($"{linha.Replace("\"", "\\\"")}");
+                    Console.WriteLine(line);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("Arquivo não encontrado.");
+                Console.WriteLine($"Ocorreu um erro ao ler o arquivo: {ex.Message}");
             }
 
             Console.WriteLine("---------------BEM VINDO-----------");
@@ -51,7 +48,6 @@ namespace Tamagotchi.View
             Console.WriteLine("1- Saber mais sobre o mascote");
             Console.WriteLine("2- Adotar mascote escolhido");
             Console.WriteLine("3- Ir para o menu principal");
-            Console.WriteLine("4- Voltar");
             Console.Write("Opcao desejada: ");
         }
 
@@ -88,26 +84,22 @@ namespace Tamagotchi.View
         }
 
         public void MostrarNascimento(){
-            string caminhoDoArquivo = "C:\\Users\\thiia\\OneDrive\\Documentos\\7DaysOfCodeTamagotchi\\Tamagotchi\\Tamagotchi\\Src\\egg.txt";
+            string basePath = AppDomain.CurrentDomain.BaseDirectory;
+            string relativePath = @"..\..\..\Src\egg.txt";
+            string filePath = Path.GetFullPath(Path.Combine(basePath, relativePath));
 
-            // Verifica se o arquivo existe para evitar erros
-            if (File.Exists(caminhoDoArquivo))
-            {
-                // Ler todas as linhas do arquivo
-                string[] linhas = File.ReadAllLines(caminhoDoArquivo);
-
-                // Iterar sobre cada linha e imprimir no console
-                System.Console.WriteLine("MASCOTE ADOTADO COM SUCESSO!! SEU OVO ESTÁ CHOCANDO");
-                foreach (string linha in linhas)
+            try
+            {   
+                System.Console.WriteLine("MASCOTE ADOTADO, SEU OVO ESTÁ CHOCANDO");
+                foreach (string line in File.ReadLines(filePath))
                 {
-                    Console.WriteLine($"{linha.Replace("\"", "\\\"")}");
+                    Console.WriteLine(line);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("Arquivo não encontrado.");
+                Console.WriteLine($"Ocorreu um erro ao ler o arquivo: {ex.Message}");
             }
-            System.Console.WriteLine("");
         }
 
         public bool ConfirmarAdocao(){

@@ -69,81 +69,124 @@ namespace Tamagotchi.Controller
                     break;
                     case 2:
                         var contador = 1;
-                        foreach(var mascotes in mascotesAdotados){
+                        if(!mascotesAdotados.Any()){
+                            System.Console.WriteLine("Nenhum mascote encontrado");
+                        }else{
+                            System.Console.WriteLine("-----------LISTA DE MASCOTES ADOTADOS-----------");
+                            foreach(var mascotes in mascotesAdotados){
                             System.Console.WriteLine($"{contador++} - {mascotes.Nome.ToUpper()}");
+                            }
                         }
+                    
                     break;
                     case 3:
                         tamagotchiView.MenuDeInteracaoComMascote();
                         bool interagirComMascote = true;
                         
                         while(interagirComMascote){
+                            System.Console.Write("Escolha uma opção: ");
                             var escolhaInteracao = tamagotchiView.ObterOpcao(5);
                             switch(escolhaInteracao){
                                 case 1:
-                                    foreach(var status in mascotesAdotados){
+                                    System.Console.WriteLine("-----------------------------");
+                                    if(!mascotesAdotados.Any()){
+                                        System.Console.WriteLine("Não há mascotes adotados");
+                                    }else{
+                                        foreach(var status in mascotesAdotados){
                                         System.Console.WriteLine($"----{status.Nome.ToUpper()}----");
                                         System.Console.WriteLine($"Saude: {status.Saude}");
                                         System.Console.WriteLine($"Humor: {status.Humor}");
                                         System.Console.WriteLine($"Energia: {status.Energia}");
                                         System.Console.WriteLine($"Alimentação: {status.Alimentacao}");
-
+                                        }
                                     }
+                                    
                                     interagirComMascote = false;
                                 break;
 
                                 case 2:
-
+                                    contador = 1;
+                                    System.Console.WriteLine("-----------------------------");
                                     foreach(var mascote in mascotesAdotados){
-                                        System.Console.WriteLine(mascote.Nome.ToUpper());
+                                        System.Console.WriteLine($"{contador ++} - {mascote.Nome.ToUpper()}");
                                     }
-                                    string nome = Console.ReadLine();
-                                    var mascoteEncontrado = mascotesAdotados.Find(x => x.Nome.Equals(nome, StringComparison.OrdinalIgnoreCase));
+                                    
+                                    System.Console.Write("Escolha um mascote: ");
+                                    var id = int.Parse(Console.ReadLine());
 
-                                    if (mascoteEncontrado != null)
-                                    {
-                                        mascoteEncontrado.BrincarComMascote();
-
+                                    if (id >= 0 && id <= mascotesAdotados.Count) {
+                                        var mascoteEscolhido = mascotesAdotados[id - 1];
+                                        System.Console.WriteLine($"Mascote escolhido: {mascoteEscolhido.Nome.ToUpper()}");
+                                        mascoteEscolhido.BrincarComMascote();
+                                    } else {
+                                        System.Console.WriteLine("Mascote escolhido é inválido.");
                                     }
-                                    else
-                                    {
-                                        System.Console.WriteLine("Mascote não encontrado.");
-                                    }
-
                                     interagirComMascote = false;
                                 break;
                                 case 3:
+                                    contador = 1;
+                                    System.Console.WriteLine("-----------------------------");
                                     foreach(var mascote in mascotesAdotados){
-                                        System.Console.WriteLine(mascote.Nome.ToUpper());
+                                        System.Console.WriteLine($"{contador ++} - {mascote.Nome.ToUpper()}");
                                     }
-                                    nome = Console.ReadLine();
-                                    mascoteEncontrado = mascotesAdotados.Find(x => x.Nome.Equals(nome, StringComparison.OrdinalIgnoreCase));
-                                    if (mascoteEncontrado != null)
-                                    {
-                                        mascoteEncontrado.AlimentarMascote();
-                                        System.Console.WriteLine("Mascote alimentado");
-                                    }
-                                    else
-                                    {
-                                        System.Console.WriteLine("Mascote não encontrado.");
+                                    System.Console.Write("Escolha um mascote: ");
+                                    id = int.Parse(Console.ReadLine());
+
+                                    if (id >= 0 && id <= mascotesAdotados.Count) {
+                                        var mascoteEscolhido = mascotesAdotados[id - 1];
+                                        System.Console.WriteLine($"Mascote escolhido: {mascoteEscolhido.Nome.ToUpper()}");
+                                        mascoteEscolhido.AlimentarMascote();
+                                    } else {
+                                        System.Console.WriteLine("Mascote escolhido é inválido.");
                                     }
                                     interagirComMascote = false;
                                 break;
                                 case 4:
+                                    contador = 1;
+                                System.Console.WriteLine("-----------------------------");
                                 foreach(var mascote in mascotesAdotados){
                                         System.Console.WriteLine(mascote.Nome.ToUpper());
                                     }
-                                    nome = Console.ReadLine();
-                                    mascoteEncontrado = mascotesAdotados.Find(x => x.Nome.Equals(nome, StringComparison.OrdinalIgnoreCase));
-                                    if (mascoteEncontrado != null)
-                                    {
-                                        mascoteEncontrado.BotarParaDormir();
-                                        System.Console.WriteLine("Seu mascote está dormindo");
+                                    
+                                    foreach(var mascote in mascotesAdotados){
+                                        System.Console.WriteLine($"{contador ++} - {mascote.Nome.ToUpper()}");
                                     }
-                                    else
-                                    {
-                                        System.Console.WriteLine("Mascote não encontrado.");
+                                    System.Console.Write("Escolha um mascote: ");
+                                    id = int.Parse(Console.ReadLine());
+
+                                    if (id >= 0 && id <= mascotesAdotados.Count) {
+                                        var mascoteEscolhido = mascotesAdotados[id - 1];
+                                        System.Console.WriteLine($"Mascote escolhido: {mascoteEscolhido.Nome.ToUpper()}");
+                                        mascoteEscolhido.BotarParaDormir();
+                                    } else {
+                                        System.Console.WriteLine("Mascote escolhido é inválido.");
                                     }
+                                    interagirComMascote = false;
+                                break;
+
+                                case 5:
+                                    contador = 1;
+                                System.Console.WriteLine("-----------------------------");
+                                foreach(var mascote in mascotesAdotados){
+                                        System.Console.WriteLine(mascote.Nome.ToUpper());
+                                    }
+                                    
+                                    foreach(var mascote in mascotesAdotados){
+                                        System.Console.WriteLine($"{contador ++} - {mascote.Nome.ToUpper()}");
+                                    }
+                                    System.Console.Write("Escolha um mascote: ");
+                                    id = int.Parse(Console.ReadLine());
+
+                                    if (id >= 0 && id <= mascotesAdotados.Count) {
+                                        var mascoteEscolhido = mascotesAdotados[id - 1];
+                                        System.Console.WriteLine($"Mascote escolhido: {mascoteEscolhido.Nome.ToUpper()}");
+                                        mascoteEscolhido.LevarAoVeterinario();
+                                    } else {
+                                        System.Console.WriteLine("Mascote escolhido é inválido.");
+                                    }
+                                    interagirComMascote = false;
+                                break;
+                                case 6:
                                     interagirComMascote = false;
                                 break;
                                 
@@ -154,7 +197,11 @@ namespace Tamagotchi.Controller
                     case 4:
                     System.Console.WriteLine("Obrigado por jogar, até a proxima!!");
                     jogar = false;
-                    break;    
+                    break; 
+                    default:
+                     System.Console.WriteLine("Opção invalida");
+                    break;
+
                 }
             }
             

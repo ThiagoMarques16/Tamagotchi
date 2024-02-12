@@ -56,6 +56,26 @@ namespace Tamagotchi.Models
                 Energia = Math.Max(0, Energia - 1);
                 Saude = Math.Max(0, Saude - 1);
                 Alimentacao = Math.Max(0, Alimentacao - 1);
+
+                string basePath = AppDomain.CurrentDomain.BaseDirectory;
+                string relativePath = @"..\..\..\Src\bola.txt";
+                string filePath = Path.GetFullPath(Path.Combine(basePath, relativePath));
+
+            try
+            {   
+                System.Console.WriteLine("SEU MASCOTE É O ARTILEIRO DO TIME");
+                foreach (string line in File.ReadLines(filePath))
+                {
+                    Console.WriteLine(line);
+                }
+
+                System.Console.WriteLine("");
+                System.Console.WriteLine("GOOOOOLLLLLL");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ocorreu um erro ao ler o arquivo: {ex.Message}");
+            }
             }
             else
             {
@@ -68,6 +88,25 @@ namespace Tamagotchi.Models
             if (Alimentacao < 10)
             {
                 Alimentacao = Math.Min(10, Alimentacao + 2);
+                string basePath = AppDomain.CurrentDomain.BaseDirectory;
+                string relativePath = @"..\..\..\Src\cereja.txt";
+                string filePath = Path.GetFullPath(Path.Combine(basePath, relativePath));
+
+                try
+                {   
+                    System.Console.WriteLine("-------------------------------");
+                    System.Console.WriteLine("SEU MASCOTE ESTÁ ALIMENTADO");
+                    foreach (string line in File.ReadLines(filePath))
+                    {
+                        Console.WriteLine(line);
+                    }
+
+                    System.Console.WriteLine("");
+                }
+                catch (Exception ex)
+                {
+                Console.WriteLine($"Ocorreu um erro ao ler o arquivo: {ex.Message}");
+            }
 
                 if (Energia < 10)
                 {
@@ -88,6 +127,27 @@ namespace Tamagotchi.Models
         public void BotarParaDormir(){
             if(Energia < 10){
                 Energia = Math.Min(10, Energia + 2);
+                string basePath = AppDomain.CurrentDomain.BaseDirectory;
+                string relativePath = @"..\..\..\Src\cama.txt";
+                string filePath = Path.GetFullPath(Path.Combine(basePath, relativePath));
+
+                try
+                {   
+                    System.Console.WriteLine("-------------------------------");
+                    System.Console.WriteLine("A MIMIR Zzz");
+                    foreach (string line in File.ReadLines(filePath))
+                    {
+                        Console.WriteLine(line);
+                    }
+
+                    System.Console.WriteLine("");
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Ocorreu um erro ao ler o arquivo: {ex.Message}");
+                }
+
 
                 if(Alimentacao < 10){
                     Alimentacao = Math.Max(0, -1);
@@ -97,6 +157,35 @@ namespace Tamagotchi.Models
                 }
             }else{
                 System.Console.WriteLine("Seu mascote está sem sono");
+            }
+        }
+
+        public void LevarAoVeterinario(){
+            if(Saude < 10){
+                Saude ++;
+
+                string basePath = AppDomain.CurrentDomain.BaseDirectory;
+                string relativePath = @"..\..\..\Src\hospital.txt";
+                string filePath = Path.GetFullPath(Path.Combine(basePath, relativePath));
+
+                try
+                {   
+                    System.Console.WriteLine("-------------------------------");
+                    System.Console.WriteLine("");
+                    foreach (string line in File.ReadLines(filePath))
+                    {
+                        Console.WriteLine(line);
+                    }
+
+                    System.Console.WriteLine("");
+                    System.Console.WriteLine("SEU MASCOTE ESTÁ SENDO BEM ATENDIDO");
+               
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Ocorreu um erro ao ler o arquivo: {ex.Message}");
+                }
             }
         }
         public class Habilidade
