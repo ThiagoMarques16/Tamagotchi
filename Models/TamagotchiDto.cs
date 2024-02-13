@@ -63,7 +63,7 @@ namespace Tamagotchi.Models
 
             try
             {   
-                System.Console.WriteLine("SEU MASCOTE É O ARTILEIRO DO TIME");
+                System.Console.WriteLine("SEU MASCOTE É O ARTILHEIRO DO TIME");
                 foreach (string line in File.ReadLines(filePath))
                 {
                     Console.WriteLine(line);
@@ -120,7 +120,7 @@ namespace Tamagotchi.Models
             }
                 else
                 {
-                    System.Console.WriteLine("Seu mascote está cheio");
+                    System.Console.WriteLine("SEU MASCOTE ESTÁ CHEIO");
                 }
         }
 
@@ -156,7 +156,7 @@ namespace Tamagotchi.Models
                     Humor = Math.Min(10, Humor + 1);
                 }
             }else{
-                System.Console.WriteLine("Seu mascote está sem sono");
+                System.Console.WriteLine("SEU MASCOTE ESTÁ SEM SONO");
             }
         }
 
